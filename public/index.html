@@ -1,132 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Gestión de Items</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medallo City Urban Fest 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        <!-- ---- PWA: manifiesto + apariencia en móvil ---- -->
-        <link rel="manifest" href="/manifest.webmanifest" />
-        <meta name="theme-color" content="#4f46e5" />
-        <link rel="icon" href="/icons/icon-192.png" />
-        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-            name="description"
-            content="CRUD de items instalable, hecho con Express y Tailwind."
-        />
+    <!-- Header -->
+    <header class="header animate-on-scroll">
+        <h1>Medallo City Urban Fest</h1>
+        <h2>2026</h2>
+        <p>El perreo y el chanteo se toman la tarima principal</p>
+        <div class="header-indicator"></div>
+    </header>
 
-        <!-- CSS generado por Tailwind (npm run dev / npm run build) -->
-        <link rel="stylesheet" href="/css/styles.css" />
-    </head>
-    <body class="min-h-screen bg-surface text-ink antialiased">
-        <!-- ============ NAVBAR ============ -->
-        <nav class="border-b border-slate-200 bg-white">
-            <div class="mx-auto flex max-w-4xl items-center gap-4 px-4 py-3">
-                <span class="flex items-center gap-2 font-semibold">
-                    <img src="/icons/icon-192.png" alt="" class="h-7 w-7 rounded-md" />
-                    TDM
-                </span>
+    <main>
+        <!-- Sección Fecha y Lugar -->
+        <section class="info-section animate-on-scroll">
+            <div class="info-card">
+                <h3>Fecha</h3>
+                <p>28 y 29 de octubre</p>
+            </div>
+            <div class="info-card">
+                <h3>Lugar</h3>
+                <p>Centro de eventos<br>Tunja, Boyacá</p>
+            </div>
+        </section>
 
-                <ul class="flex items-center gap-1 text-sm">
-                    <li>
-                        <a
-                            href="/index.html"
-                            class="rounded-lg bg-brand-50 px-3 py-1.5 font-medium text-brand-700"
-                            >Gestión</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/catalog.html"
-                            class="rounded-lg px-3 py-1.5 text-slate-600 hover:bg-slate-100"
-                            >Catálogo</a
-                        >
-                    </li>
-                </ul>
-
-                <div class="ml-auto flex items-center gap-2">
-                    <!-- Se muestra solo cuando el navegador queda sin conexión -->
-                    <span
-                        id="offlineBadge"
-                        hidden
-                        class="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800"
-                    >
-                        Sin conexión
-                    </span>
-                    <!-- Se muestra solo cuando la app se puede instalar -->
-                    <button id="installBtn" hidden class="btn btn-ghost !py-1.5 text-xs">
-                        Instalar app
-                    </button>
+        <!-- Artistas Invitados -->
+        <section class="artists-section animate-on-scroll">
+            <h2>ARTISTAS INVITADOS</h2>
+            <div class="grid-container">
+                <div class="card artist-card">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" alt="Blessd">
+                    <div class="artist-info">
+                        <h3>BLESSD</h3>
+                        <p>Artista antioqueño de reggaeton y trap</p>
+                    </div>
+                </div>
+                <div class="card artist-card">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" alt="Ryan Castro">
+                    <div class="artist-info">
+                        <h3>RYAN CASTRO</h3>
+                        <p>Artista antioqueño de reggaeton y dancehall</p>
+                    </div>
+                </div>
+                <div class="card artist-card">
+                    <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80" alt="Karol G">
+                    <div class="artist-info">
+                        <h3>KAROL G</h3>
+                        <p>Artista antioqueña de reggaeton</p>
+                    </div>
+                </div>
+                <div class="card artist-card">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80" alt="Feid">
+                    <div class="artist-info">
+                        <h3>FEID</h3>
+                        <p>Artista antioqueño de reggaeton</p>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </section>
 
-        <main class="mx-auto max-w-4xl px-4 py-8">
-            <header class="mb-6">
-                <h1 class="text-2xl font-bold tracking-tight">Gestión de Items</h1>
-                <p class="mt-1 text-sm text-slate-500">Crea, edita y elimina items del catálogo.</p>
-            </header>
+        <!-- Acerca del Evento -->
+        <section class="about-section animate-on-scroll">
+            <div class="about-card">
+                <h3>🔥 Acerca del Evento</h3>
+                <p>El festival más pesado del género urbano en el altiplano. Dos días consecutivos de puro flow, perreo intenso y los mayores exponentes del reggaetón y el trap nacional e internacional.</p>
+            </div>
+        </section>
 
-            <!-- ============ FORMULARIO ============ -->
-            <form
-                id="itemForm"
-                class="mb-8 rounded-card border border-slate-200 bg-white p-4 shadow-sm"
-            >
-                <div class="grid gap-3 sm:grid-cols-[1fr_1fr_auto]">
-                    <div>
-                        <label for="name" class="mb-1 block text-xs font-medium text-slate-600"
-                            >Nombre</label
-                        >
-                        <input
-                            type="text"
-                            id="name"
-                            class="input"
-                            placeholder="Nombre del item"
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label
-                            for="description"
-                            class="mb-1 block text-xs font-medium text-slate-600"
-                            >Descripción</label
-                        >
-                        <input
-                            type="text"
-                            id="description"
-                            class="input"
-                            placeholder="Descripción (opcional)"
-                        />
-                    </div>
-                    <div class="flex items-end gap-2">
-                        <button type="submit" id="submitBtn" class="btn btn-primary">
-                            Agregar
-                        </button>
-                        <button type="button" id="cancelBtn" hidden class="btn btn-ghost">
-                            Cancelar
-                        </button>
-                    </div>
+        <!-- Formulario (Visual e Interactivo, no funcional) -->
+        <section class="form-section animate-on-scroll">
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Value">
                 </div>
+                <div class="form-group">
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" placeholder="Value">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Value">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <input type="text" id="message" placeholder="Value">
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
             </form>
+        </section>
+    </main>
 
-            <!-- ============ TABLA ============ -->
-            <div class="overflow-hidden rounded-card border border-slate-200 bg-white shadow-sm">
-                <table class="w-full text-left text-sm">
-                    <thead class="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
-                        <tr>
-                            <th class="px-4 py-3 font-medium">ID</th>
-                            <th class="px-4 py-3 font-medium">Nombre</th>
-                            <th class="px-4 py-3 font-medium">Descripción</th>
-                            <th class="px-4 py-3 text-right font-medium">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="itemsTable" class="divide-y divide-slate-100"></tbody>
-                </table>
-            </div>
-        </main>
+    <!-- Footer -->
+    <footer class="footer animate-on-scroll">
+        <p>Medallo City Urban Fest 2026</p>
+        <div class="social-links">
+            <a href="#">f</a> <a href="#">in</a> <a href="#">▶</a> <a href="#">ig</a>
+        </div>
+    </footer>
 
-        <script type="module" src="/js/main.js"></script>
-        <script type="module" src="/js/pwa.js"></script>
-    </body>
+    <script src="main.js"></script>
+</body>
 </html>
